@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.env
+venv/
+
+# Docker
+.docker/
+
+# DB
+*.db
+*.sqlite3
+
+# Beads
+# Intentionally NOT ignoring .beads except temp/lock files
+# However, .beads/issues.jsonl etc should be committed
+.beads/lock
+.beads/temp
+
+# OS
+.DS_Store
+Thumbs.db

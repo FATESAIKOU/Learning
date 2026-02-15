@@ -1,0 +1,8 @@
+# Backend dependencies
+fastapi>=0.68.0,<0.69.0
+uvicorn[standard]>=0.15.0,<0.16.0
+sqlalchemy>=1.4.0,<1.5.0
+pydantic>=1.8.0,<1.9.0
+typing-extensions>=4.0.0
+# For async DB if needed later
+# databases
