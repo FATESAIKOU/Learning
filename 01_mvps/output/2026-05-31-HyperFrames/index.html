@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="zh">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1920, height=1080" />
@@ -10,27 +10,206 @@
         padding: 0;
         box-sizing: border-box;
       }
-      html,
       body {
         margin: 0;
         width: 1920px;
         height: 1080px;
         overflow: hidden;
-        background: #000;
+        background: #0B090A;
+        font-family: 'Georgia', 'Times New Roman', serif;
+        -webkit-font-smoothing: antialiased;
       }
-      #container {
-        position: relative;
+      .scene {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 1920px;
         height: 1080px;
+        overflow: hidden;
       }
-      #title {
-        position: absolute;
-        font-family: system-ui, sans-serif;
-        font-size: 96px;
-        font-weight: 700;
-        color: #ffffff;
+      #scene1 {
+        z-index: 1;
+        background: #0B090A;
+      }
+      #scene2 {
+        z-index: 2;
+        background: #161A1D;
+        opacity: 0;
+      }
+      #scene3 {
+        z-index: 3;
+        background: #161A1D;
+        opacity: 0;
+      }
+      #scene4 {
+        z-index: 4;
+        background: #0B090A;
+        opacity: 0;
+      }
+      #scene5 {
+        z-index: 5;
+        background: #161A1D;
+        opacity: 0;
+      }
+
+      .scene-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding: 100px 160px;
+        gap: 18px;
+      }
+
+      .headline {
+        font-family: 'Barlow Semi Condensed', 'Arial Narrow', sans-serif;
+        font-weight: 800;
+        font-size: 110px;
+        color: #E5E5E5;
+        letter-spacing: -0.03em;
+        text-transform: uppercase;
         text-align: center;
-        white-space: nowrap;
+        line-height: 1.1;
+      }
+
+      .mega-stat {
+        font-family: 'JetBrains Mono', 'Courier New', monospace;
+        font-weight: 700;
+        font-size: 130px;
+        color: #E5383B;
+        font-variant-numeric: tabular-nums;
+        letter-spacing: -0.02em;
+        text-align: center;
+      }
+
+      .stat-label {
+        font-family: 'Barlow Semi Condensed', sans-serif;
+        font-weight: 600;
+        font-size: 24px;
+        color: #8A8A8A;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-align: center;
+      }
+
+      .subtitle {
+        font-family: 'Newsreader', serif;
+        font-weight: 400;
+        font-size: 34px;
+        color: #A0A0A0;
+        text-align: center;
+        max-width: 1200px;
+        line-height: 1.6;
+      }
+
+      .accent-line {
+        width: 200px;
+        height: 3px;
+        background: #660708;
+        transform-origin: left center;
+      }
+
+      .radial-glow {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(130px);
+        opacity: 0.12;
+        pointer-events: none;
+      }
+
+      .ghost-text {
+        position: absolute;
+        font-family: 'Barlow Semi Condensed', sans-serif;
+        font-weight: 900;
+        color: rgba(229, 229, 229, 0.04);
+        pointer-events: none;
+      }
+
+      #scene4 .radial-glow {
+        opacity: 0.18;
+      }
+
+      /* Stat card pair layout */
+      .stat-card-row {
+        display: flex;
+        gap: 80px;
+        align-items: center;
+      }
+      .stat-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+      .stat-card-value {
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 700;
+        font-size: 72px;
+        font-variant-numeric: tabular-nums;
+      }
+      .stat-card-grade {
+        font-family: 'Barlow Semi Condensed', sans-serif;
+        font-weight: 700;
+        font-size: 28px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .vs-divider {
+        font-family: 'Barlow Semi Condensed', sans-serif;
+        font-weight: 800;
+        font-size: 40px;
+        color: #660708;
+      }
+
+      .closing-quote {
+        font-family: 'Newsreader', serif;
+        font-weight: 400;
+        font-style: italic;
+        font-size: 48px;
+        color: #E5E5E5;
+        text-align: center;
+        line-height: 1.4;
+      }
+
+      .attribution {
+        font-family: 'Barlow Semi Condensed', sans-serif;
+        font-weight: 600;
+        font-size: 28px;
+        color: #8A8A8A;
+        text-align: center;
+      }
+
+      .small-label {
+        font-family: 'Barlow Semi Condensed', sans-serif;
+        font-weight: 600;
+        font-size: 18px;
+        color: #660708;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .scene-number {
+        position: absolute;
+        top: 60px;
+        right: 80px;
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 500;
+        font-size: 16px;
+        color: #660708;
+        letter-spacing: 0.15em;
+      }
+
+      .scene4-headline {
+        font-family: 'Barlow Semi Condensed', 'Arial Narrow', sans-serif;
+        font-weight: 800;
+        font-size: 110px;
+        color: #E5383B;
+        letter-spacing: -0.03em;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 1.1;
       }
     </style>
   </head>
@@ -38,38 +217,364 @@
     <div
       id="root"
       data-composition-id="main"
-      data-start="0"
-      data-duration="5"
       data-width="1920"
       data-height="1080"
+      data-start="0"
+      data-duration="55"
     >
-      <div id="container">
-        <h1
-          id="title"
-          class="clip"
-          data-start="0"
-          data-duration="5"
-          data-track-index="0"
+      <!-- ============================================================ -->
+      <!-- SCENE 1: THE HOLY GRAIL (0-11s)                              -->
+      <!-- ============================================================ -->
+      <div id="scene1" class="scene">
+        <div
+          class="radial-glow s1-glow"
+          style="top: -200px; left: 600px; width: 800px; height: 800px; background: #660708;"
+        ></div>
+        <div
+          class="ghost-text s1-ghost-top"
+          style="top: 40px; left: 60px; font-size: 200px;"
         >
-          Hello, HyperFrames!
-        </h1>
+          1998
+        </div>
+        <div
+          class="ghost-text s1-ghost-btm"
+          style="bottom: 20px; right: 80px; font-size: 160px;"
+        >
+          POKEMON
+        </div>
+        <div class="scene-content">
+          <div class="small-label">THE HOLY GRAIL OF TRADING CARDS</div>
+          <h1 class="headline">天價聖杯</h1>
+          <div class="accent-line"></div>
+          <div class="mega-stat">$16,490,000</div>
+          <div class="stat-label">2026年2月 &middot; PIKACHU ILLUSTRATOR &middot; PSA 10</div>
+          <p class="subtitle">
+            全球僅存一張滿分完美品相，由網紅 Logan Paul 以天價賣出
+          </p>
+        </div>
+        <div class="scene-number">01 / 05</div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- SCENE 2: PANDEMIC BUBBLE (11-21s)                            -->
+      <!-- ============================================================ -->
+      <div id="scene2" class="scene">
+        <div
+          class="radial-glow s2-glow"
+          style="top: -150px; left: 400px; width: 1000px; height: 700px; background: #A4161A;"
+        ></div>
+        <div
+          class="ghost-text s2-ghost-top"
+          style="top: 60px; left: 80px; font-size: 180px;"
+        >
+          2020
+        </div>
+        <div
+          class="ghost-text s2-ghost-btm"
+          style="bottom: 30px; right: 60px; font-size: 140px;"
+        >
+          LOCKDOWN
+        </div>
+        <div class="scene-content">
+          <div class="small-label">THE PERFECT STORM</div>
+          <h1 class="headline">疫情泡沫</h1>
+          <div class="accent-line"></div>
+          <div class="mega-stat s2-pct">
+            574<span style="font-size: 70px;">%</span>
+          </div>
+          <div class="stat-label">2020年 eBay Pok&eacute;mon 銷售額暴漲</div>
+          <p class="subtitle">
+            政府紓困金 + 居家隔離 + 無聊的中年男人 = 卡牌市場核爆
+          </p>
+          <div
+            class="mega-stat s2-viewers"
+            style="font-size: 80px; color: #A4161A; margin-top: 10px;"
+          >
+            300,000<span style="font-size: 36px; color: #8A8A8A;">
+              人同時收看 Logan Paul 開包直播</span
+            >
+          </div>
+        </div>
+        <div class="scene-number">02 / 05</div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- SCENE 3: PSA GRADING (21-32s)                                -->
+      <!-- ============================================================ -->
+      <div id="scene3" class="scene">
+        <div
+          class="radial-glow s3-glow"
+          style="top: -100px; left: 300px; width: 1200px; height: 600px; background: #660708;"
+        ></div>
+        <div
+          class="ghost-text s3-ghost-top"
+          style="top: 50px; left: 50px; font-size: 200px;"
+        >
+          9
+        </div>
+        <div
+          class="ghost-text s3-ghost-btm"
+          style="bottom: 40px; right: 50px; font-size: 200px;"
+        >
+          10
+        </div>
+        <div class="scene-content">
+          <div class="small-label">THE GAME OF POINTS</div>
+          <h1 class="headline">評級遊戲</h1>
+          <div class="accent-line"></div>
+          <div class="stat-card-row">
+            <div class="stat-card s3-card-9">
+              <div class="stat-card-grade" style="color: #8A8A8A;">PSA 9</div>
+              <div class="stat-card-value" style="color: #8A8A8A;">
+                $20K&ndash;50K
+              </div>
+            </div>
+            <div class="vs-divider">VS</div>
+            <div class="stat-card s3-card-10">
+              <div class="stat-card-grade" style="color: #E5383B;">PSA 10</div>
+              <div class="stat-card-value" style="color: #E5383B;">
+                $550,000
+              </div>
+            </div>
+          </div>
+          <div class="stat-label">一分之差 &middot; 10 &ndash; 20 倍價差</div>
+          <p class="subtitle">
+            肉眼無法分辨的微米級白點或 0.1mm 偏移，決定天堂與地獄
+          </p>
+        </div>
+        <div class="scene-number">03 / 05</div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- SCENE 4: COUNTERFEIT EMPIRE (32-43s)                         -->
+      <!-- ============================================================ -->
+      <div id="scene4" class="scene">
+        <div
+          class="radial-glow s4-glow"
+          style="top: 100px; left: 500px; width: 900px; height: 900px; background: #E5383B;"
+        ></div>
+        <div
+          class="ghost-text s4-ghost-top"
+          style="top: 100px; right: 80px; font-size: 160px; color: rgba(229, 56, 59, 0.06);"
+        >
+          FAKE
+        </div>
+        <div
+          class="ghost-text s4-ghost-btm"
+          style="bottom: 50px; left: 80px; font-size: 140px; color: rgba(229, 56, 59, 0.06);"
+        >
+          SCAM
+        </div>
+        <div class="scene-content">
+          <div class="small-label">THE DARK SIDE</div>
+          <h1 class="scene4-headline">造假帝國</h1>
+          <div
+            class="accent-line s4-accent"
+            style="background: #E5383B; width: 300px;"
+          ></div>
+          <div class="mega-stat s4-stat">
+            400<span style="font-size: 60px;">%</span>
+          </div>
+          <div class="stat-label s4-label-main">2025年 PSA 偽造與篡改案件暴增</div>
+          <p class="subtitle s4-sub">
+            熱風槍重封技術 &middot; 一比一高仿 PSA 外殼 &middot; Logan Paul $350萬買到假貨
+          </p>
+          <div
+            class="stat-label s4-label-red"
+            style="color: #E5383B; margin-top: 10px;"
+          >
+            連 BBCE 權威鑑定機構都從此停止 Pok&eacute;mon 鑑定服務
+          </div>
+        </div>
+        <div class="scene-number">04 / 05</div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- SCENE 5: THE TRUTH (43-55s)                                  -->
+      <!-- ============================================================ -->
+      <div id="scene5" class="scene">
+        <div
+          class="radial-glow s5-glow"
+          style="top: 200px; left: 500px; width: 800px; height: 500px; background: #660708;"
+        ></div>
+        <div
+          class="ghost-text s5-ghost-top"
+          style="top: 80px; left: 60px; font-size: 180px;"
+        >
+          529
+        </div>
+        <div
+          class="ghost-text s5-ghost-btm"
+          style="bottom: 40px; right: 100px; font-size: 140px;"
+        >
+          BILLION
+        </div>
+        <div class="scene-content">
+          <div class="small-label">THE FINAL TRUTH</div>
+          <h1 class="headline" style="font-size: 90px;">529億張</h1>
+          <div class="accent-line" style="width: 250px;"></div>
+          <div class="stat-label s5-label-total">
+            The Pok&eacute;mon Company 歷史總印量
+          </div>
+          <div class="stat-label s5-label-year" style="color: #660708;">
+            2024年單年印量 102 億張 &middot; 現代卡稀缺只是假象
+          </div>
+          <div style="margin-top: 30px;"></div>
+          <p class="closing-quote">
+            喜歡，才買。<br />不是因為你會發財。
+          </p>
+          <div class="attribution">&mdash; 阿佑</div>
+        </div>
+        <div class="scene-number">05 / 05</div>
       </div>
     </div>
 
     <script>
       window.__timelines = window.__timelines || {};
-      const tl = gsap.timeline({ paused: true });
-      tl.fromTo(
-        "#title",
-        { opacity: 0, y: 60, xPercent: -50, yPercent: -50 },
-        { opacity: 1, y: 0, xPercent: -50, yPercent: -50, duration: 1.2 },
-        0
-      );
-      tl.to(
-        "#title",
-        { opacity: 0, xPercent: -50, yPercent: -50, duration: 0.6 },
-        4.4
-      );
+      var tl = gsap.timeline({ paused: true });
+
+      /* ==========================================================
+         SCENE 1: THE HOLY GRAIL  (0 – 10.5s, blur xfade 10.5–11s)
+         ========================================================== */
+      var s1 = "#scene1 ";
+      tl.from(s1 + ".small-label",  { y: 20, opacity: 0, duration: 0.5, ease: "power2.out" }, 0.3);
+      tl.from(s1 + ".headline",     { y: 40, opacity: 0, duration: 0.7, ease: "expo.out" },   0.5);
+      tl.from(s1 + ".accent-line",  { scaleX: 0, duration: 0.6, ease: "power3.out" },          0.8);
+      tl.from(s1 + ".mega-stat",    { y: 30, opacity: 0, duration: 0.7, ease: "power3.out" },  1.0);
+      tl.from(s1 + ".stat-label",   { y: 20, opacity: 0, duration: 0.5, ease: "power2.out" },  1.4);
+      tl.from(s1 + ".subtitle",     { y: 20, opacity: 0, duration: 0.6, ease: "power2.out" },  1.8);
+      tl.from(s1 + ".scene-number", { opacity: 0, duration: 0.4, ease: "power2.out" },         0.5);
+      tl.from(s1 + ".s1-glow",      { scale: 0.9, opacity: 0, duration: 2.5, ease: "sine.inOut" }, 0);
+      tl.to(s1 + ".s1-glow",        { scale: 1.08, duration: 5, ease: "sine.inOut", yoyo: true, repeat: 1 }, 2.5);
+      tl.from(s1 + ".s1-ghost-top", { x: -30, opacity: 0, duration: 3, ease: "sine.inOut" }, 0);
+      tl.from(s1 + ".s1-ghost-btm", { x: 30, opacity: 0, duration: 3, ease: "sine.inOut" },  0.5);
+
+      /* S1 -> S2 blur crossfade (calm) */
+      var T1 = 10.5;
+      tl.to("#scene1", { filter: "blur(25px)", scale: 1.05, duration: 0.6, ease: "power1.in" }, T1);
+      tl.to("#scene1", { opacity: 0, duration: 0.4, ease: "power1.in" }, T1 + 0.4);
+      tl.set("#scene1", { visibility: "hidden" }, T1 + 0.8);
+      tl.fromTo("#scene2",
+        { filter: "blur(25px)", scale: 0.95, opacity: 0 },
+        { filter: "blur(25px)", scale: 0.95, opacity: 1, duration: 0.3, ease: "power1.inOut" }, T1 + 0.5);
+      tl.to("#scene2", { filter: "blur(0px)", scale: 1, duration: 0.6, ease: "power1.out" }, T1 + 0.8);
+
+      /* ==========================================================
+         SCENE 2: PANDEMIC BUBBLE  (11 – 20.5s, blur xfade 20.5–21s)
+         ========================================================== */
+      var s2 = "#scene2 ";
+      tl.from(s2 + ".small-label",  { y: 20, opacity: 0, duration: 0.5, ease: "power2.out" },   11.3);
+      tl.from(s2 + ".headline",     { x: -30, opacity: 0, duration: 0.7, ease: "expo.out" },     11.5);
+      tl.from(s2 + ".accent-line",  { scaleX: 0, duration: 0.6, ease: "power3.out" },            11.8);
+      tl.from(s2 + ".s2-pct",       { scale: 0.9, opacity: 0, duration: 0.7, ease: "back.out(1.4)" }, 12.0);
+      tl.from(s2 + ".stat-label",   { y: 20, opacity: 0, duration: 0.5, ease: "power2.out" },    12.4);
+      tl.from(s2 + ".subtitle",     { y: 20, opacity: 0, duration: 0.6, ease: "power2.out" },    12.8);
+      tl.from(s2 + ".s2-viewers",   { y: 30, opacity: 0, duration: 0.6, ease: "power3.out" },    13.4);
+      tl.from(s2 + ".scene-number", { opacity: 0, duration: 0.4, ease: "power2.out" },           11.3);
+      tl.from(s2 + ".s2-glow",      { scale: 0.85, opacity: 0, duration: 2, ease: "sine.inOut" }, 11);
+      tl.to(s2 + ".s2-glow",        { scale: 1.1, duration: 4, ease: "sine.inOut", yoyo: true, repeat: 1 }, 13);
+      tl.from(s2 + ".s2-ghost-top", { y: -20, opacity: 0, duration: 2.5, ease: "sine.inOut" },  11);
+      tl.from(s2 + ".s2-ghost-btm", { y: 20, opacity: 0, duration: 2.5, ease: "sine.inOut" },   11.3);
+
+      /* S2 -> S3 blur crossfade */
+      var T2 = 20.5;
+      tl.to("#scene2", { filter: "blur(25px)", scale: 1.05, duration: 0.6, ease: "power1.in" }, T2);
+      tl.to("#scene2", { opacity: 0, duration: 0.4, ease: "power1.in" }, T2 + 0.4);
+      tl.set("#scene2", { visibility: "hidden" }, T2 + 0.8);
+      tl.fromTo("#scene3",
+        { filter: "blur(25px)", scale: 0.95, opacity: 0 },
+        { filter: "blur(25px)", scale: 0.95, opacity: 1, duration: 0.3, ease: "power1.inOut" }, T2 + 0.5);
+      tl.to("#scene3", { filter: "blur(0px)", scale: 1, duration: 0.6, ease: "power1.out" }, T2 + 0.8);
+
+      /* ==========================================================
+         SCENE 3: PSA GRADING  (21 – 31.5s, blur xfade 31.5–32s)
+         ========================================================== */
+      var s3 = "#scene3 ";
+      tl.from(s3 + ".small-label",  { y: 20, opacity: 0, duration: 0.5, ease: "power2.out" },    21.3);
+      tl.from(s3 + ".headline",     { y: 40, opacity: 0, duration: 0.7, ease: "expo.out" },       21.5);
+      tl.from(s3 + ".accent-line",  { scaleX: 0, duration: 0.6, ease: "power3.out" },             21.8);
+      tl.from(s3 + ".s3-card-9",    { x: -40, opacity: 0, duration: 0.6, ease: "power2.out" },    22.2);
+      tl.from(s3 + ".vs-divider",   { scale: 0, opacity: 0, duration: 0.4, ease: "back.out(1.7)" }, 22.5);
+      tl.from(s3 + ".s3-card-10",   { x: 40, opacity: 0, duration: 0.6, ease: "power2.out" },     22.8);
+      tl.from(s3 + ".stat-label",   { y: 20, opacity: 0, duration: 0.5, ease: "power2.out" },     23.4);
+      tl.from(s3 + ".subtitle",     { y: 20, opacity: 0, duration: 0.6, ease: "power2.out" },     23.8);
+      tl.from(s3 + ".scene-number", { opacity: 0, duration: 0.4, ease: "power2.out" },            21.3);
+      tl.from(s3 + ".s3-glow",      { scale: 0.85, opacity: 0, duration: 2.5, ease: "sine.inOut" }, 21);
+      tl.to(s3 + ".s3-glow",        { scale: 1.12, duration: 5, ease: "sine.inOut", yoyo: true, repeat: 1 }, 23.5);
+      tl.from(s3 + ".s3-ghost-top", { x: -40, opacity: 0, duration: 2, ease: "sine.inOut" }, 21);
+      tl.from(s3 + ".s3-ghost-btm", { x: 40, opacity: 0, duration: 2, ease: "sine.inOut" },  21.3);
+
+      /* S3 -> S4 blur crossfade */
+      var T3 = 31.5;
+      tl.to("#scene3", { filter: "blur(25px)", scale: 1.05, duration: 0.6, ease: "power1.in" }, T3);
+      tl.to("#scene3", { opacity: 0, duration: 0.4, ease: "power1.in" }, T3 + 0.4);
+      tl.set("#scene3", { visibility: "hidden" }, T3 + 0.8);
+      tl.fromTo("#scene4",
+        { filter: "blur(25px)", scale: 0.95, opacity: 0 },
+        { filter: "blur(25px)", scale: 0.95, opacity: 1, duration: 0.3, ease: "power1.inOut" }, T3 + 0.5);
+      tl.to("#scene4", { filter: "blur(0px)", scale: 1, duration: 0.6, ease: "power1.out" }, T3 + 0.8);
+
+      /* ==========================================================
+         SCENE 4: COUNTERFEIT EMPIRE  (32 – 42.5s, blur xfade 42.5–43s)
+         ========================================================== */
+      var s4 = "#scene4 ";
+      tl.from(s4 + ".small-label",    { y: 20, opacity: 0, duration: 0.5, ease: "power2.out" },   32.3);
+      tl.from(s4 + ".scene4-headline",{ scale: 1.1, opacity: 0, duration: 0.7, ease: "expo.out" }, 32.5);
+      tl.from(s4 + ".s4-accent",      { scaleX: 0, duration: 0.6, ease: "power3.out" },            32.8);
+      tl.from(s4 + ".s4-stat",        { y: 40, opacity: 0, duration: 0.7, ease: "power4.out" },    33.0);
+      tl.from(s4 + ".s4-label-main",  { y: 20, opacity: 0, duration: 0.5, ease: "power2.out" },    33.5);
+      tl.from(s4 + ".s4-sub",         { y: 20, opacity: 0, duration: 0.6, ease: "power2.out" },    33.9);
+      tl.from(s4 + ".s4-label-red",   { opacity: 0, duration: 0.6, ease: "power2.out" },           34.5);
+      tl.from(s4 + ".scene-number",   { opacity: 0, duration: 0.4, ease: "power2.out" },           32.3);
+      tl.from(s4 + ".s4-glow",        { scale: 0.7, opacity: 0, duration: 1.5, ease: "sine.inOut" }, 32);
+      tl.to(s4 + ".s4-glow",          { scale: 1.2, opacity: 0.22, duration: 2.5, ease: "sine.inOut", yoyo: true, repeat: 3 }, 33.5);
+      tl.from(s4 + ".s4-ghost-top",   { opacity: 0, duration: 2, ease: "power2.inOut" },  32);
+      tl.from(s4 + ".s4-ghost-btm",   { opacity: 0, duration: 2, ease: "power2.inOut" },  32.3);
+
+      /* S4 -> S5 blur crossfade */
+      var T4 = 42.5;
+      tl.to("#scene4", { filter: "blur(25px)", scale: 1.05, duration: 0.6, ease: "power1.in" }, T4);
+      tl.to("#scene4", { opacity: 0, duration: 0.4, ease: "power1.in" }, T4 + 0.4);
+      tl.set("#scene4", { visibility: "hidden" }, T4 + 0.8);
+      tl.fromTo("#scene5",
+        { filter: "blur(25px)", scale: 0.95, opacity: 0 },
+        { filter: "blur(25px)", scale: 0.95, opacity: 1, duration: 0.3, ease: "power1.inOut" }, T4 + 0.5);
+      tl.to("#scene5", { filter: "blur(0px)", scale: 1, duration: 0.6, ease: "power1.out" }, T4 + 0.8);
+
+      /* ==========================================================
+         SCENE 5: THE TRUTH  (43 – 55s, final fade out 53–55s)
+         ========================================================== */
+      var s5 = "#scene5 ";
+      tl.from(s5 + ".small-label",    { y: 20, opacity: 0, duration: 0.5, ease: "power2.out" }, 43.3);
+      tl.from(s5 + ".headline",       { y: 40, opacity: 0, duration: 0.7, ease: "expo.out" },   43.5);
+      tl.from(s5 + ".accent-line",    { scaleX: 0, duration: 0.6, ease: "power3.out" },         43.8);
+      tl.from(s5 + ".s5-label-total", { y: 20, opacity: 0, duration: 0.5, ease: "power2.out" }, 44.2);
+      tl.from(s5 + ".s5-label-year",  { y: 20, opacity: 0, duration: 0.5, ease: "power2.out" }, 44.6);
+      tl.from(s5 + ".closing-quote",  { y: 30, opacity: 0, duration: 1.0, ease: "power2.out" }, 45.5);
+      tl.from(s5 + ".attribution",    { y: 15, opacity: 0, duration: 0.6, ease: "power2.out" }, 46.5);
+      tl.from(s5 + ".scene-number",   { opacity: 0, duration: 0.4, ease: "power2.out" },        43.3);
+      tl.from(s5 + ".s5-glow",        { scale: 0.9, opacity: 0, duration: 2, ease: "sine.inOut" }, 43);
+      tl.to(s5 + ".s5-glow",          { scale: 1.05, opacity: 0.08, duration: 6, ease: "sine.inOut" }, 45);
+      tl.from(s5 + ".s5-ghost-top",   { x: -20, opacity: 0, duration: 2, ease: "sine.inOut" }, 43);
+      tl.from(s5 + ".s5-ghost-btm",   { x: 20, opacity: 0, duration: 2, ease: "sine.inOut" },  43.3);
+
+      /* Final fade to black (53 – 55s) — allowed: final-scene exit animations */
+      var Tf = 53;
+      tl.to(s5 + ".small-label",    { opacity: 0, duration: 0.5, ease: "power2.in" }, Tf);
+      tl.to(s5 + ".headline",       { opacity: 0, y: -15, duration: 0.6, ease: "power2.in" }, Tf + 0.1);
+      tl.to(s5 + ".accent-line",    { opacity: 0, duration: 0.4, ease: "power2.in" },      Tf + 0.2);
+      tl.to(s5 + ".s5-label-total", { opacity: 0, duration: 0.5, ease: "power2.in" },      Tf + 0.3);
+      tl.to(s5 + ".s5-label-year",  { opacity: 0, duration: 0.5, ease: "power2.in" },      Tf + 0.3);
+      tl.to(s5 + ".closing-quote",  { opacity: 0, y: 20, duration: 0.8, ease: "power2.in" },Tf + 0.5);
+      tl.to(s5 + ".attribution",    { opacity: 0, duration: 0.6, ease: "power2.in" },      Tf + 0.8);
+      tl.to(s5 + ".scene-number",   { opacity: 0, duration: 0.4, ease: "power2.in" },      Tf + 0.1);
+      tl.to(s5 + ".s5-glow",        { opacity: 0, duration: 1, ease: "power2.in" },        Tf);
+      tl.to(s5 + ".s5-ghost-top",   { opacity: 0, duration: 1, ease: "power2.in" },        Tf);
+      tl.to(s5 + ".s5-ghost-btm",   { opacity: 0, duration: 1, ease: "power2.in" },        Tf);
+
+      /* Hard-kill scene 5 at end */
+      tl.set("#scene5", { opacity: 0, visibility: "hidden" }, 55);
+
       window.__timelines["main"] = tl;
     </script>
   </body>
