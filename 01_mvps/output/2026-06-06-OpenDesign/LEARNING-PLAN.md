@@ -103,55 +103,55 @@ Output format: a complete SKILL.md file with YAML frontmatter.
   - 實際結果：pnpm 11.5.2（走 Desktop App 不需 source build，版本不影響）
   - 預估時間：5 分鐘
 
-- [ ] **A2. 下載並安裝 OpenDesign Desktop App**
+- [x] **A2. 下載並安裝 OpenDesign Desktop App**
   - 目的：取得 web UI（chat + sandbox preview）+ daemon + 內建 skills/design-systems
   - 驗證：啟動 app 後瀏覽器打開 `http://localhost:7456`，看到 Home 畫面
   - 預估時間：5 分鐘
 
-- [ ] **A3. 驗證 opencode agent 被 OpenDesign 偵測**
+- [x] **A3. 驗證 opencode agent 被 OpenDesign 偵測**
   - 目的：確認 daemon PATH 掃描成功找到 opencode，agent 下拉選單顯示 opencode（已打勾）
   - 驗證：UI 左上方 agent 選單為 opencode；若未偵測到則進 Settings → Rescan
   - 預估時間：5 分鐘
 
 ### Phase B: 首次 Prototype 產生
 
-- [ ] **B1. 選 skill + design system + 輸入 prompt**
+- [x] **B1. 選 skill + design system + 輸入 prompt**
   - 目的：使用預設 `web-prototype` + `Neutral Modern`，輸入一個簡單的 landing page prompt
   - 驗證：按下 Send 後，左側 chat 顯示 agent streaming 輸出；右側 sandbox iframe 出現 prototype
   - Prompt 範例：「幫我做一個 AI 筆記工具的 landing page，簡約風格，含 hero、features、pricing、CTA」
   - 預估時間：10 分鐘
 
-- [ ] **B2. 觀察 artifact 產出結構**
+- [x] **B2. 觀察 artifact 產出結構**
   - 目的：理解 daemon 如何從 opencode 的 stdout 解析 `<artifact>` 標籤並渲染到 iframe
   - 驗證：點擊底部 artifact 檔案樹，確認有 `index.html` 及可能的 `assets/` 目錄
   - 預估時間：5 分鐘
 
 ### Phase C: Vibe Design 迭代
 
-- [ ] **C1. 執行至少 3 輪 vibe design 迭代**
+- [x] **C1. 執行至少 3 輪 vibe design 迭代**
   - 目的：體驗「看效果 → 打字 → 改 → 再看」的核心 loop
   - 驗證：每次迭代後 sandbox iframe 自動刷新，頁面確實依指令變更
   - 範例指令：「把 CTA 按鈕改成橘色」「hero 加上漸層背景」「縮小 pricing card 間距」
   - 預估時間：10 分鐘
 
-- [ ] **C2. 切換不同 design system 觀察差異**
+- [x] **C2. 切換不同 design system 觀察差異**
   - 目的：理解 DESIGN.md 如何影響產出風格
   - 驗證：選 `Linear` 或 `Stripe` design system，以相同或類似 prompt 重新產生，對比視覺差異
   - 預估時間：5 分鐘
 
 ### Phase D: 了解輸出與邊界
 
-- [ ] **D1. 匯出 HTML 檔案**
+- [x] **D1. 匯出 HTML 檔案**
   - 目的：理解產出物為真實 HTML/CSS（非 Figma 格式），可直接交付工程
   - 驗證：下載 HTML 後以瀏覽器直接打開，樣式/互動正常
   - 預估時間：3 分鐘
 
-- [ ] **D2. 嘗試不同 skill mode（如有時間）**
+- [x] **D2. 嘗試不同 skill mode（如有時間）**
   - 目的：擴展心智模型，了解 prototype / deck 等 mode 的能力邊界
   - 驗證：選 `simple-deck` skill，輸入簡報 prompt，觀察多頁簡報預覽
   - 預估時間：7 分鐘
 
-- [ ] **D3. 總結能力邊界與導入設想**
+- [x] **D3. 總結能力邊界與導入設想**
   - 目的：根據實際操作經驗，整理 OpenDesign 的能力邊界與公司內導入 Figma 設計流的建構方式
   - 驗證：產出一份簡短筆記，記錄 (a) 能做到的事 (b) 做不到的事 (c) 與 Figma 的互補關係
   - 預估時間：5 分鐘
@@ -159,3 +159,64 @@ Output format: a complete SKILL.md file with YAML frontmatter.
 ---
 
 **總預估時間：60 分鐘**
+
+---
+
+## 追加：Web 版學習計畫（從 source 建置 web server）
+
+**目標**：從原始碼 git clone + pnpm install + pnpm tools-dev run web，讓使用者透過瀏覽器（localhost:3000）進行 vibe design。
+
+**與 Desktop App 的關鍵差異：**
+
+| 面向 | Desktop App | Source 建置 Web 版 |
+|------|-----------|-------------------|
+| web UI 來源 | Electron 內嵌 | Next.js dev server (localhost:3000) |
+| daemon | Electron sidecar 啟動 | tools-dev 啟動（背景 daemon + web） |
+| skills/design-systems | 內建在 app bundle | 直接讀取 repo 目錄（`skills/`、`design-systems/`） |
+| 適合場景 | 一般使用者、快速體驗 | 開發者、客製化、自架 server |
+| 啟動指令 | `open -a "Open Design"` | `pnpm tools-dev run web` |
+
+**注意事項：**
+- pnpm 版本要求：QUICKSTART.md 要求 `pnpm 10.33.x`（`package.json#packageManager` 指定 `pnpm@10.33.2`）。目前使用者安裝的 pnpm 11.5.2 不相容，須先 `asdf install pnpm 10.33.2` 並切換。
+- corepack 會根據 `packageManager` 欄位自動選擇正確版本，所以也可執行 `corepack enable` 後再 `corepack pnpm install`。但使用者用 asdf 管理 Node/pnpm，直接 asdf 切換版本更直接。
+
+### Phase E: Web 版環境建置
+
+- [ ] **E1. 切換 pnpm 到 10.33.2**
+  - 目的：滿足 QUICKSTART.md 的 pnpm 版本要求（repo corepack 指定 10.33.2）
+  - 指令：`asdf install pnpm 10.33.2 && asdf global pnpm 10.33.2 && pnpm --version`
+  - 驗證：回傳 `10.33.2`
+  - 預估時間：3 分鐘
+
+- [ ] **E2. Clone repo 並安裝依賴**
+  - 目的：取得完整原始碼，包含 skills/、design-systems/、apps/、packages/
+  - 指令：`git clone https://github.com/nexu-io/open-design.git`（放到工作目錄外的獨立位置）
+  - 驗證：`cd open-design && pnpm install` 成功完成，無錯誤
+  - 潛在問題：`better-sqlite3` native addon 在 M4 Mac Pro (ARM64) 需 build tools（python3, make, clang++）
+  - 預估時間：5~10 分鐘
+
+- [ ] **E3. 啟動 dev loop**
+  - 目的：啟動 daemon + web dev server
+  - 指令：`pnpm tools-dev run web`
+  - 驗證：terminal 印出 web URL（預設 `http://localhost:3000`），瀏覽器打開後看到 Home 畫面
+  - 預估時間：2 分鐘
+
+### Phase F: Web 版功能驗證
+
+- [ ] **F1. 確認 agent 偵測**
+  - 目的：確認 daemon 在 source 模式下同樣能掃描到 opencode
+  - 驗證：UI 左上角 agent 選單顯示 opencode（已打勾）
+  - 預估時間：2 分鐘
+
+- [ ] **F2. 完整 prototype 產生流程**
+  - 目的：確認 source 建置的 web 版功能正常
+  - 驗證：選 web-prototype + Neutral Modern + prompt → sandbox iframe 正常顯示
+  - 預估時間：5 分鐘
+
+- [ ] **F3. 了解 source 目錄結構（選讀）**
+  - 目的：知道 skills/、design-systems/、apps/ 的關係
+  - 驗證：能解釋 daemon 如何讀取 skills/SKILL.md 並組合 system prompt
+  - 重點檔案：`apps/daemon/src/skills.ts`、`apps/daemon/src/agents.ts`、`apps/web/src/App.tsx`
+  - 預估時間：5 分鐘
+
+**Web 版總預估時間：約 25 分鐘**
