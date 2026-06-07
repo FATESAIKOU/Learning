@@ -23,7 +23,7 @@
 
 ### 4. 補足抓取失敗的內容
 - 對 curl 失敗 (NYT 403) 改用 cdp navigate + 抓 main/article 區
-- 對反爬完全失敗的 (Reddit 等) 改用 cdp 開 Google 搜尋「<title>」或同主題新聞源,抓替代來源
+- 對反爬完全失敗的 (Reddit 等) 改用 cdp 開 Google 搜尋「`<title>`」或同主題新聞源,抓替代來源
 - 若仍找不到,降級為短文 + 標明「資料不足」
 - 補充產出同 step 3 的 `NN_slug.md` 格式
 - **產出**: 補足失敗清單的 .md
@@ -53,7 +53,7 @@
 
 **路徑**: `output/<cat>/<date>-<title>.md`
 **`<cat>`**: `AI` / `IT` / `政經`
-**`<date>`**: 8 位數 `YYYYMMDD`
+**`<date>`**: `YYYY-MM-DD`
 **`<title>`**: 英文底線轉連字號 (`-`),去除特殊字元,中日文保留
 
 **檔案結構**:
@@ -157,7 +157,7 @@ learning-log/C<自增ID>-<日期>-<文章概要Title>.md
 ```
 
 `<自增ID>`: 從 C1 開始,一個 step 一個 log,序號單調遞增
-`<日期>`: 8 位數 `YYYYMMDD`
+`<日期>`: `YYYY-MM-DD`
 `<文章概要Title>`: 該 step 處理對象的概稱 (例: `C1-Feedly-Today-Scroll-and-Extract`, `C5-Analysis-and-Summary-Writeup`)
 
 #### 內容格式
@@ -209,7 +209,7 @@ idx,url,title,host,snippet
 
 ### 步驟 4 補充: 失敗處理
 - NYT 403 → cdp navigate + 抓 main/article 區
-- Reddit 反爬 → cdp 開 Google 搜尋「<title>」或同主題新聞源
+- Reddit 反爬 → cdp 開 Google 搜尋「`<title>`」或同主題新聞源
 - 仍找不到 → 降級為短文 + 標明「資料不足」,不刪除檔案
 - **失敗的 article 不刪 4 點 .md**,而是降級內容
 
@@ -256,17 +256,3 @@ feedly/
     ├── C5-<date>-<step-5-title>.md
     └── C6-<date>-<step-6-title>.md
 ```
-
-**檔案總數**: 1 (AGENT) + 1 (跨類別 Summary) + 3 (類別 Summary) + 32 (個別報告) + 6 (learning log) = **43 個 .md**
-
----
-
-## 注意事項
-
-1. **不要保留 raw 過渡檔**: 用戶指示只保留 4 點解析 + 總結。raw 為過渡,step 6 刪除
-2. **不要保留中間資料**: `_articles.csv` / `_分類.md` / `_失敗.md` / `_抽取引流.md` / `_scripts/` 全部 step 6 刪除
-3. **subagent 範圍**: 4 點解析可平行 subagent,**總結/推薦由主 agent 親自寫**
-4. **步驟 3/4 順序**: 先 curl,失敗才 cdp 補,再失敗才 cdp 搜尋
-5. **Reddit 與 NYT 特殊性**: Reddit 對 curl + cdp 完全封鎖,跳過或 cdp Google 搜尋替代。NYT 對 curl 403,需 cdp fallback
-6. **標題原文保留**: 4 點解析與總結的 title 必須是**原文**,不翻譯
-7. **檔名規範**: `<date>-<title>.md`,date 為 8 位數 YYYYMMDD,title 為英文連字號
