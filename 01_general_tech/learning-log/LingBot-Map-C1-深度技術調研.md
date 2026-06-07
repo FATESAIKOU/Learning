@@ -12,7 +12,7 @@
 
 | 執行的動作 | 動作的目的 | 預期達成效果 | 實際的結果 |
 |-----------|-----------|-------------|-----------|
-| 讀取工作目錄 `00_general_tech/AGENTS.md` | 確認輸出物格式、分析報告 4 點結構、DA 表欄位 | 取得精確的輸出規範 | 成功取得，確認 4 點問答格式、DA 表需 5 個欄位（技術名、技術解法、技術使用前提、技術使用副作用、技術使用預期效果） |
+| 讀取工作目錄 `01_general_tech/AGENTS.md` | 確認輸出物格式、分析報告 4 點結構、DA 表欄位 | 取得精確的輸出規範 | 成功取得，確認 4 點問答格式、DA 表需 5 個欄位（技術名、技術解法、技術使用前提、技術使用副作用、技術使用預期效果） |
 | 讀取 `learning-log/` 目錄 | 確認過往學習紀錄的命名與格式慣例 | 遵循一致的檔名與結構 | 取得 7 篇歷史紀錄，確認檔名規則為 `<技術名>-C<自增ID>-<總結>.md` |
 | WebFetch 取得 GitHub README（主要頁面） | 取得專案的完整說明、架構、API、安裝指南 | 理解模型設計理念、使用方式、benchmark 框架 | 成功取得完整 README（含安裝、demo、offline rendering pipeline、benchmark 架構詳解） |
 | WebFetch 取得 arxiv 論文摘要 (2604.14141) | 取得論文 formal description | 確認核心貢獻與技術名詞定義 | 成功取得：定義 GCT 三種 attention（anchor context、pose-reference window、trajectory memory），~20 FPS，10,000+ 幀 |

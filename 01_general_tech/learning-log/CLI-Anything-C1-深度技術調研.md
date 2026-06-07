@@ -8,7 +8,7 @@
 
 ### 現狀
 - 工作目錄：`Learning-CLI-Anything`，為一個技術調研學習專案
-- `00_general_tech/AGENTS.md` 定義了「技術解析助理」角色與兩項輸出物規範
+- `01_general_tech/AGENTS.md` 定義了「技術解析助理」角色與兩項輸出物規範
 - 已有兩個分析標的：OpenHuman、CodeGraph、CloakBrowser（已完成報告）
 - `01_nanobot_dockerize/` 是用於實作型任務的目錄（目前僅有 `.gitkeep`）
 - CLI-Anything 是全新的分析標的，需要從 C1 開始
@@ -21,7 +21,7 @@
 
 | 執行的動作 | 動作的目的 | 預期達成效果 | 實際的結果 |
 |-----------|-----------|-------------|-----------|
-| 讀取 `00_general_tech/AGENTS.md` | 確認輸出規範與角色定義 | 理解報告格式要求 | 已完整理解：分析報告需包含 4 點（問題描述、背景、解法、替代方案 DA 表）；過程報告需包含狀況理解、動作與結果、現狀、決斷點 |
+| 讀取 `01_general_tech/AGENTS.md` | 確認輸出規範與角色定義 | 理解報告格式要求 | 已完整理解：分析報告需包含 4 點（問題描述、背景、解法、替代方案 DA 表）；過程報告需包含狀況理解、動作與結果、現狀、決斷點 |
 | 瀏覽目錄結構 | 了解專案現狀 | 確認既有分析標的與報告命名規則 | 確認為全新標的，命名格式為 `<日期>-CLI-Anything.md` |
 | Fetch GitHub repo 首頁 (README) | 取得專案簡介、架構、使用方式 | 理解 CLI-Anything 的核心概念與生態 | 取得完整 README（含 news、Quick Start、Why CLI、Phase 1-7 說明、60+ harness 目錄） |
 | Fetch `cli-anything-plugin/HARNESS.md` | 取得 7-phase SOP 的完整規範 | 理解 CLI 生成的詳細方法論 | 取得完整 HARNESS.md，涵蓋 Phase 1-7, Architecture Patterns, Principles & Rules, Preview Norms, Directory Structure |

@@ -13,7 +13,7 @@ EverOS 是一個為 self-evolving AI agents 提供長期記憶的開源專案（
 | 執行的動作 | 動作的目的 | 預期達成效果 | 實際的結果 |
 |-----------|-----------|-------------|-----------|
 | 讀取本地 AGENTS.md | 理解任務規範與輸出格式 | 明確輸出物要求（分析報告 4 點、DA 表、learning-log） | 確認格式要求，包括檔名規則與內容格式 |
-| 讀取本地目錄結構 | 了解已有分析成果 | 得知先前已分析過 OpenHuman、CodeGraph、CloakBrowser | 目錄有 00_general_tech（技術調研）與 01_nanobot_dockerize |
+| 讀取本地目錄結構 | 了解已有分析成果 | 得知先前已分析過 OpenHuman、CodeGraph、CloakBrowser | 目錄有 01_general_tech（技術調研）與 01_nanobot_dockerize |
 | 讀取 EverOS README（GitHub webfetch） | 取得專案整體描述 | 理解專案架構、使用方式、benchmark 成績 | 完整 README，包含 quick start、architecture、benchmarks 表格、API 範例 |
 | 讀取 EverOS AGENTS.md（GitHub webfetch） | 理解 EverOS 專案本身的開發規範 | 得知專案地圖、開發指令、關鍵 entry points | 6 層架構入口、開發指令（docker/uv/make/pyright）、prompt 路徑 |
 | 讀取 EverCore ARCHITECTURE.md | 理解核心記憶系統的架構設計 | 取得 6 層架構細節、記憶建構/檢索流程、技術堆疊 | 完整架構文件：Agentic/Memory/Retrieval/Business/Infra/Core 六層 |

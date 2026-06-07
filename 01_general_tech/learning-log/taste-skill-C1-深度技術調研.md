@@ -7,11 +7,11 @@
 2. 深入調研 `https://github.com/Leonxlnx/taste-skill`
 
 目前資料夾結構：
-- `00_general_tech/AGENTS.md`：定義「技術解析助理」角色與輸出格式（分析報告 + 學習過程報告），規則為四點格式、使用中文、DA 表欄位固定
-- `00_general_tech/output/`：已有 11 份歷史分析報告
-- `00_general_tech/learning-log/`：已有 23 份學習過程報告
-- `01_mvps/`：獨立資料夾（MVP 實作訓練用），非本次目標
-- **AGENTS.md 不存在於根目錄**，僅存在於 `00_general_tech/` 與 `01_mvps/` 子目錄中
+- `01_general_tech/AGENTS.md`：定義「技術解析助理」角色與輸出格式（分析報告 + 學習過程報告），規則為四點格式、使用中文、DA 表欄位固定
+- `01_general_tech/output/`：已有 11 份歷史分析報告
+- `01_general_tech/learning-log/`：已有 23 份學習過程報告
+- `02_mvps/`：獨立資料夾（MVP 實作訓練用），非本次目標
+- **AGENTS.md 不存在於根目錄**，僅存在於 `01_general_tech/` 與 `02_mvps/` 子目錄中
 
 taste-skill 是由 Leonxlnx 維護的開源專案（MIT License），34.3k stars、2.5k forks，是 `vercel-labs/agent-skills` 生態中規模最大的專案。核心訴求是「給 AI agent 好品味——阻止 AI 產出 boring、generic slop」。
 
@@ -19,7 +19,7 @@ taste-skill 是由 Leonxlnx 維護的開源專案（MIT License），34.3k stars
 
 | 執行的動作 | 動作的目的 | 預期達成效果 | 實際的結果 |
 |-----------|-----------|-------------|-----------|
-| 讀取根目錄、`00_general_tech/`、`01_mvps/` 目錄結構 | 理解專案結構、確認 AGENTS.md 位置與規則 | 確認當前工作目錄的組織方式與輸出規範 | 確認 AGENTS.md 僅存在子目錄中，規則為四點格式 + DA 表，需要兩份輸出物 |
+| 讀取根目錄、`01_general_tech/`、`02_mvps/` 目錄結構 | 理解專案結構、確認 AGENTS.md 位置與規則 | 確認當前工作目錄的組織方式與輸出規範 | 確認 AGENTS.md 僅存在子目錄中，規則為四點格式 + DA 表，需要兩份輸出物 |
 | webfetch GitHub repo 首頁 README | 取得 taste-skill 的整體介紹、技能列表、安裝方式、FAQ | 理解專案全貌：14 個 skills、v2 experimental 為預設、安裝指令 | 取得完整 README，含技能對照表、dial 設定、examples、research 目錄、常見問題 |
 | webfetch `skills/taste-skill/SKILL.md` (v2) | 取得預設版本的核心 SKILL 內容 | 理解三轉盤機制、Design Read、硬規則、pre-flight check 等核心機制 | 成功取得但內容超過 64KB 被截斷，需配合工具讀取完整內容 |
 | webfetch `CHANGELOG.md` | 理解 v1 → v2 的變更範圍與設計理由 | 確認哪些是新增規則、哪些是保留的 | 成功取得：v2 experimental 是 substantial rewrite，新增 §0 Brief Inference、§2 Design System Map、§8 Dark Mode Protocol、§11 Redesign Protocol、§12 Block Library、§13 Out of Scope、§14 Pre-Flight Check；強化 §9 AI Tells 禁令 |
@@ -43,7 +43,7 @@ taste-skill 是由 Leonxlnx 維護的開源專案（MIT License），34.3k stars
 
 | 驗證的面向 | 驗證的內容與方式 | 驗證結果 |
 |-----------|----------------|---------|
-| 報告格式合規性 | 對照 `00_general_tech/AGENTS.md` 的四點格式要求（問題 → 背景 → 解法 → 替代方案） | 分析報告包含 4 個必要段落，未延伸額外內容 |
+| 報告格式合規性 | 對照 `01_general_tech/AGENTS.md` 的四點格式要求（問題 → 背景 → 解法 → 替代方案） | 分析報告包含 4 個必要段落，未延伸額外內容 |
 | DA 表完整性 | 確認 DA 表欄位為 技術名、技術解法、技術使用前提、技術使用副作用、技術使用預期效果 | 提供 4 個替代方案（taste-skill 自身作為基準 + 手寫 anti-slop 指令 + DESIGN.md 法 + 其他 agent skills），欄位齊全 |
 | 程式碼例舉 | 確認有虛擬碼或實際程式碼說明核心機制 | 包含 `npx skills add` 安裝指令、Step 0~5 流程說明、三轉盤推斷表、硬規則分類表 |
 | 中文使用 | 全報告為繁體中文 | 符合 |

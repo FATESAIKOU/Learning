@@ -13,7 +13,7 @@
 
 | 執行的動作 | 動作的目的 | 預期達成效果 | 實際的結果 |
 |-----------|-----------|-------------|-----------|
-| 讀取最新 `01_mvps/AGENTS.md` | 確認使用者修改後的規則 | 確認 README.md 定義已被刪除，僅保留 LEARNING-PLAN.md | 確認：AGENTS.md 中無 README.md 相關格式要求 |
+| 讀取最新 `02_mvps/AGENTS.md` | 確認使用者修改後的規則 | 確認 README.md 定義已被刪除，僅保留 LEARNING-PLAN.md | 確認：AGENTS.md 中無 README.md 相關格式要求 |
 | 刪除 `hf-demo/` 目錄 | 清理 scaffold 殘留 | `hf-demo/` 不存在 | `rm -rf` 成功 |
 | 寫入 `index.html` 到 output 目錄根層 | 保留最終 composition 產出物 | 可直接複用於 lint/preview/render | 寫入到 `2026-05-31-HyperFrames/index.html` |
 | 更新 `LEARNING-PLAN.md` 全部勾選完成 | 標記所有 T-1 ~ T-8 完成 | Checklist 全 `[x]` | 8 步驟全數標記完成 |
@@ -24,7 +24,7 @@
 
 | 驗證的面向 | 驗證的內容與方式 | 驗證結果 |
 |-----------|----------------|---------|
-| 目錄殘留 | `ls 01_mvps/output/2026-05-31-HyperFrames/` | 僅 3 個檔案：index.html, LEARNING-PLAN.md, README.md |
+| 目錄殘留 | `ls 02_mvps/output/2026-05-31-HyperFrames/` | 僅 3 個檔案：index.html, LEARNING-PLAN.md, README.md |
 | hf-demo 已刪除 | `ls hf-demo` | 不存在 |
 | LEARNING-PLAN.md | Checklist 全部勾選 + 技術分析完整 | ✅ |
 | README.md | 含 lint / preview / render 三命令 + 規則表 | ✅ |

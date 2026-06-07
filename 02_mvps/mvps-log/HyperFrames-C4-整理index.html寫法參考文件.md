@@ -22,7 +22,7 @@
 
 | 驗證的面向 | 驗證的內容與方式 | 驗證結果 |
 |-----------|----------------|---------|
-| 目錄結構 | `ls 01_mvps/output/2026-05-31-HyperFrames/` | 4 個檔案：index.html, index.html-guide.md, LEARNING-PLAN.md, README.md |
+| 目錄結構 | `ls 02_mvps/output/2026-05-31-HyperFrames/` | 4 個檔案：index.html, index.html-guide.md, LEARNING-PLAN.md, README.md |
 | guide 內容完整性 | 對照官方 docs 六大面向 | ✅ minimal example、data-* 表、clip types、GSAP rules、common mistakes、validation checklist |
 | 範例程式碼 | 每個規則都附 code block | ✅ JavaScript/HTML/CSS 範例，含正確/錯誤對比 |
 

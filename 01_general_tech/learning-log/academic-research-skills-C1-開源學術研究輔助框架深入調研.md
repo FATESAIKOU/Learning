@@ -11,8 +11,8 @@
 
 | 執行的動作 | 動作的目的 | 實際的結果 |
 |---|---|---|
-| 讀取工作區目錄結構 | 了解既有專案內容與 AGENTS.md 位置 | 工作區含 00_general_tech（內有 AGENTS.md）和 01_nanobot_dockerize 兩個目錄 |
-| 讀取 00_general_tech/AGENTS.md | 確認輸出格式與角色定義 | 取得完整格式要求：4 點分析結構 + 過程報告格式，含 DA 表欄位定義 |
+| 讀取工作區目錄結構 | 了解既有專案內容與 AGENTS.md 位置 | 工作區含 01_general_tech（內有 AGENTS.md）和 01_nanobot_dockerize 兩個目錄 |
+| 讀取 01_general_tech/AGENTS.md | 確認輸出格式與角色定義 | 取得完整格式要求：4 點分析結構 + 過程報告格式，含 DA 表欄位定義 |
 | WebFetch GitHub repo 首頁 | 取得專案總覽、README、功能清單、版本歷史 | 取得完整 README（含架構圖、pipeline 說明、changelog v3.3~v3.9.4.2） |
 | WebFetch docs/ARCHITECTURE.md | 取得 pipeline 架構細節、stage matrix、quality gates | 取得完整 10-stage pipeline 矩陣、data access flow、skill dependency graph、7-mode 檢查表細節、timeline |
 | WebFetch POSITIONING.md | 了解專案定位與授權 | 確認為 CC BY-NC 4.0、human-in-the-loop 設計哲學、assistive not deceptive |

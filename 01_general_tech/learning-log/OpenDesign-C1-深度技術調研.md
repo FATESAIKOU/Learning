@@ -7,9 +7,9 @@
 2. 深入調研 `https://github.com/nexu-io/open-design`
 
 目前資料夾結構：
-- `00_general_tech/AGENTS.md`：定義「技術解析助理」角色與輸出格式（分析報告 + 學習過程報告），格式嚴格受限
-- `00_general_tech/output/`：已有 12 份歷史分析報告
-- `00_general_tech/learning-log/`：已有 23 份學習過程報告
+- `01_general_tech/AGENTS.md`：定義「技術解析助理」角色與輸出格式（分析報告 + 學習過程報告），格式嚴格受限
+- `01_general_tech/output/`：已有 12 份歷史分析報告
+- `01_general_tech/learning-log/`：已有 23 份學習過程報告
 
 Open Design 是由 nexu-io 開發的開源 Claude Design 替代方案，59.6k stars，Apache-2.0 授權。核心訴求是「local-first, agent-native design platform」——不自有 agent loop，而是將使用者已安裝的 coding agent CLI 包裝為統一設計工作流。
 
@@ -17,7 +17,7 @@ Open Design 是由 nexu-io 開發的開源 Claude Design 替代方案，59.6k st
 
 | 執行的動作 | 動作的目的 | 預期達成效果 | 實際的結果 |
 |-----------|-----------|-------------|-----------|
-| 讀取 `00_general_tech/` 目錄與 `AGENTS.md` | 理解專案結構、輸出格式規則、歷史報告風格 | 確認 AGENTS.md 中的四點格式要求與 DA 表欄位定義 | 已理解：需產出含 4 段落分析報告 + DA 表 + 學習過程報告 |
+| 讀取 `01_general_tech/` 目錄與 `AGENTS.md` | 理解專案結構、輸出格式規則、歷史報告風格 | 確認 AGENTS.md 中的四點格式要求與 DA 表欄位定義 | 已理解：需產出含 4 段落分析報告 + DA 表 + 學習過程報告 |
 | 讀取 output/ 與 learning-log/ 目錄 | 確認歷史報告風格與深度標準 | 以 HyperFrames 報告為參考基準 | 已參考 HyperFrames 報告的詳細度與架構風格 |
 | 擷取 GitHub repo 首頁 README | 取得專案的整體介紹、功能列表、對比矩陣、使用方式 | 理解 Open Design 是什麼、做什麼、與競品差異 | 已取得完整 README，含 comparison table、product tour、quick start、platform compatibility |
 | 擷取 AGENTS.md（repo 中的） | 了解 repo 的開發慣例、架構、boundary constraints | 取得 monorepo 結構、lifecycle commands、capability exposure rules | 已取得完整 repo AGENTS.md：workspace layout、development workflow、agent runtime conventions、chat UI conventions、CSS ownership、i18n keys |

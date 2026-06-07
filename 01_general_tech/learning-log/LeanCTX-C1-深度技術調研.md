@@ -1,7 +1,7 @@
 # LeanCTX-C1-深度技術調研
 
 ## 狀況理解
-使用者要求對 GitHub repo `yvgude/lean-ctx` 進行深度技術調研。該專案標榜為 "Context OS for AI development"，宣稱透過單一 Rust 二進位提供壓縮、記憶、路由、驗證四維度的 context 管理能力，支援 30+ AI coding 工具。需產出符合 `00_general_tech/AGENTS.md` 規範的分析報告（4 點格式）與過程記錄。
+使用者要求對 GitHub repo `yvgude/lean-ctx` 進行深度技術調研。該專案標榜為 "Context OS for AI development"，宣稱透過單一 Rust 二進位提供壓縮、記憶、路由、驗證四維度的 context 管理能力，支援 30+ AI coding 工具。需產出符合 `01_general_tech/AGENTS.md` 規範的分析報告（4 點格式）與過程記錄。
 
 ## 執行的動作與結果
 

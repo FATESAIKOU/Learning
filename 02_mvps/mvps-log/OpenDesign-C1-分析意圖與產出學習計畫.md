@@ -2,7 +2,7 @@
 
 ## 狀況理解
 
-使用者已完成 OpenDesign 技術的「基礎認知 catchup」（見 `00_general_tech/output/2026-06-06-OpenDesign.md`），現在要在 `01_mvps/` 目錄下進行實作學習。目標：
+使用者已完成 OpenDesign 技術的「基礎認知 catchup」（見 `01_general_tech/output/2026-06-06-OpenDesign.md`），現在要在 `02_mvps/` 目錄下進行實作學習。目標：
 
 1. 跑通完整 OpenDesign 流程，建立使用時的心智模型
 2. 了解 video design 的能力邊界，以及未來公司內導入 Figma 設計流時 OpenDesign 的建構方式

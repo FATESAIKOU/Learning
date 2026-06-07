@@ -7,9 +7,9 @@
 2. 深入調研 `https://github.com/heygen-com/hyperframes`
 
 目前資料夾結構：
-- `00_general_tech/AGENTS.md`：定義「技術解析助理」角色與輸出格式（分析報告 + 學習過程報告）
-- `00_general_tech/output/`：已有 6 份歷史分析報告（CodeGraph, OpenHuman, CLI-Anything, CloakBrowser, EverOS, LingBot-Map）
-- `00_general_tech/learning-log/`：已有 14 份學習過程報告
+- `01_general_tech/AGENTS.md`：定義「技術解析助理」角色與輸出格式（分析報告 + 學習過程報告）
+- `01_general_tech/output/`：已有 6 份歷史分析報告（CodeGraph, OpenHuman, CLI-Anything, CloakBrowser, EverOS, LingBot-Map）
+- `01_general_tech/learning-log/`：已有 14 份學習過程報告
 - `01_nanobot_dockerize/`：獨立資料夾，非本次目標
 
 HyperFrames 是由 HeyGen 開源（Apache 2.0）的影片渲染框架，22.6k stars，核心訴求是「Write HTML, Render video, Built for agents」。
@@ -18,7 +18,7 @@ HyperFrames 是由 HeyGen 開源（Apache 2.0）的影片渲染框架，22.6k st
 
 | 執行的動作 | 動作的目的 | 預期達成效果 | 實際的結果 |
 |-----------|-----------|-------------|-----------|
-| 讀取根目錄與 `00_general_tech/AGENTS.md` | 理解專案結構與任務規則 | 確認 AGENTS.md 中的輸出格式與限制 | 已理解：需產出分析報告 + 學習過程報告，格式嚴格受限 |
+| 讀取根目錄與 `01_general_tech/AGENTS.md` | 理解專案結構與任務規則 | 確認 AGENTS.md 中的輸出格式與限制 | 已理解：需產出分析報告 + 學習過程報告，格式嚴格受限 |
 | 擷取 GitHub repo 首頁 README | 取得專案的整體介紹與架構說明 | 理解 HyperFrames 是什麼、做什麼、怎麼用 | 已取得完整 README，含架構圖、使用方式、package 列表 |
 | 擷取 AGENTS.md（repo 中的） | 理解 repo 的開發慣例與結構 | 取得 monorepo 結構、build/test/lint 命令、關鍵慣例 | 已取得：bun 作為 package manager, oxlint/oxfmt, composition 驗證規則 |
 | 擷取 DESIGN.md | 理解品牌設計系統 | 取得色彩/字型/元件 pattern | 已取得完整設計系統定義 |

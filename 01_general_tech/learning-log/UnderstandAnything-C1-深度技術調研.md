@@ -8,7 +8,7 @@
 
 ### 現狀
 - 工作目錄：`Learning-Understand-Anything`，一個技術調研學習專案
-- `00_general_tech/AGENTS.md` 定義了「技術解析助理」角色，規範了分析報告（4 點制）與過程報告的格式
+- `01_general_tech/AGENTS.md` 定義了「技術解析助理」角色，規範了分析報告（4 點制）與過程報告的格式
 - 先前已完成 6 個分析標的：CodeGraph、OpenHuman、CLI-Anything、CloakBrowser、EverOS、LingBot-Map
 - Understand-Anything 是全新的分析標的，需從 C1 開始
 
@@ -20,7 +20,7 @@
 
 | 執行的動作 | 動作的目的 | 預期達成效果 | 實際的結果 |
 |-----------|-----------|-------------|-----------|
-| 讀取 `00_general_tech/AGENTS.md` | 確認角色定義與輸出規範 | 理解報告格式要求 | 已理解：分析報告 4 點制 + DA 表；過程報告含狀況理解、動作與結果、現狀、決斷點 |
+| 讀取 `01_general_tech/AGENTS.md` | 確認角色定義與輸出規範 | 理解報告格式要求 | 已理解：分析報告 4 點制 + DA 表；過程報告含狀況理解、動作與結果、現狀、決斷點 |
 | 瀏覽目錄結構與既有報告 | 了解專案現狀與既有分析格式 | 確認命名規則與報告風格參考 | 確認命名格式：分析報告 `<日期>-<技術名>.md`；過程報告 `<技術名>-C<ID>-<總結>.md` |
 | Fetch GitHub repo 首頁 (README) | 取得專案概述、架構、功能列表 | 理解核心概念與使用方式 | 取得完整 README（功能、quick start、多平台安裝說明、多代理管線架構、FAQ） |
 | Fetch `CLAUDE.md` (開發者文件) | 取得架構設計、開發規範、關鍵技術細節 | 深入理解技術內核 | 取得完整 CLAUDE.md：monorepo 架構、Dashboard 設計、Agent pipeline、subpath exports 策略、tree-sitter WASM 選擇理由、local testing 流程 |
