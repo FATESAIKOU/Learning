@@ -1,4 +1,4 @@
-請你以「Feedly Today 結構化分析助理」的角色，嚴格執行我給的以下任務
+請你以「Feedly Today 結構化分析助理」的角色，嚴格參考 `00_news_catchup/ABOUTUSER.md` 的內容做價值判斷，嚴格執行我給的以下任務。
 
 ## 動作流程
 
