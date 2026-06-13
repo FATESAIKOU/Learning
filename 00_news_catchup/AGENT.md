@@ -17,27 +17,27 @@
 
 ### 3. 根據分類檔抓全部連結內容
 - 對每篇文章用 `python3 _scripts/html2text.py <url>` 抓 raw 文字內容
-- 寫入對應類別目錄的 `NN_slug.md` (4 點技術/政策解析格式,見下方)
+- 寫入對應類別目錄的暫存 .md (4 點技術/政策解析格式,見下方;最終檔名見 §總的輸出物)
 - 失敗的 (NYT 403 等) 標記進 step 4
-- **產出**: `AI技術/NN_slug.md`, `傳統IT技術/NN_slug.md`, `政治經濟/NN_slug.md`
+- **產出**: `AI技術/`, `傳統IT技術/`, `政治經濟/` 目錄下的暫存 .md
 
 ### 4. 補足抓取失敗的內容
 - 對 curl 失敗 (NYT 403) 改用 cdp navigate + 抓 main/article 區
 - 對反爬完全失敗的 (Reddit 等) 改用 cdp 開 Google 搜尋「`<title>`」或同主題新聞源,抓替代來源
 - 若仍找不到,降級為短文 + 標明「資料不足」
-- 補充產出同 step 3 的 `NN_slug.md` 格式
+- 補充產出同 step 3 的 4 點解析格式
 - **產出**: 補足失敗清單的 .md
 
 ### 5. 三個領域各自總結
-- 讀所有 `NN_slug.md` + 用戶 profile (`/Users/fatesaikou/testAI/BrowserBase/_user_profile.md`)
-- 對每個類別生成 `01_AI技術類別總結.md` / `02_傳統IT技術類別總結.md` / `03_政治經濟類別總結.md` (見格式)
-- 跨類別生成 `__5+2_最終推薦.md` (見格式)
-- **產出**: 4 個總結/推薦 .md
+- 讀所有 step 3/4 產出的個別分析 .md + 用戶 profile (`/Users/fatesaikou/testAI/BrowserBase/_user_profile.md`)
+- 對每個類別生成類別總結 (見 §分析領域報告 格式)
+- 跨類別生成 5+2 最終推薦 (見 §分析該日總結 格式)
+- **產出**: 4 個總結/推薦 .md (暫存於工作目錄,最終路徑見 §總的輸出物)
 
 ### 6. 刪除不需要的中間檔
 - 刪除 step 1 (`_articles.csv`) + step 2 (覆蓋版本) + step 3 過程中產生的 raw 過渡檔 + step 4 補充用過的搜尋快取
-- **保留** step 3/4 的最終 `NN_slug.md` 與 step 5 的 4 個總結 .md
-- 最後再依使用者要求重組到 `output/` 結構
+- **保留** step 3/4 的個別分析 .md 與 step 5 的 4 個總結 .md
+- 最後再依使用者要求重組到 `output/` 結構 (依 §總的輸出物 路徑規範)
 - **產出**: 最終目錄結構 (見下)
 
 ---
@@ -53,7 +53,7 @@
 
 **路徑**: `output/<cat>/<date>-<title>.md`
 **`<cat>`**: `AI` / `IT` / `政經`
-**`<date>`**: `YYYY-MM-DD`
+**`<date>`**: `YYYYMMDD`
 **`<title>`**: 英文底線轉連字號 (`-`),去除特殊字元,中日文保留
 
 **檔案結構**:
@@ -88,9 +88,9 @@
 
 **路徑**: `output/<cat>/<date>-Summary.md`
 **3 個檔案**:
-- `output/AI/<date>-Summary.md` (對應 `01_AI技術類別總結.md`)
-- `output/IT/<date>-Summary.md` (對應 `02_傳統IT技術類別總結.md`)
-- `output/政經/<date>-Summary.md` (對應 `03_政治經濟類別總結.md`)
+- `output/AI/<date>-Summary.md`
+- `output/IT/<date>-Summary.md`
+- `output/政經/<date>-Summary.md`
 
 **檔案結構**:
 ```markdown
@@ -119,7 +119,6 @@
 ### 分析該日總結 - 格式
 
 **路徑**: `output/<date>-Summary.md` (1 個檔案,跨類別)
-**對應**: `__5+2_最終推薦.md`
 
 **檔案結構**:
 ```markdown
@@ -156,8 +155,8 @@
 learning-log/C<自增ID>-<日期>-<文章概要Title>.md
 ```
 
-`<自增ID>`: 從 C1 開始,一個 step 一個 log,序號單調遞增
-`<日期>`: `YYYY-MM-DD`
+`<自增ID>`: 從現有 learning-log 中最大 C 編號 +1 開始,一個 step 一個 log,序號單調遞增,跨日期不重置
+`<日期>`: `YYYYMMDD`
 `<文章概要Title>`: 該 step 處理對象的概稱 (例: `C1-Feedly-Today-Scroll-and-Extract`, `C5-Analysis-and-Summary-Writeup`)
 
 #### 內容格式
@@ -219,9 +218,8 @@ idx,url,title,host,snippet
 - subagent prompt 需包含用戶 profile 完整內容
 
 ### 步驟 6 補充: 最終重組 (使用者指定)
-- 把 `AI技術/NN_slug.md` 移到 `output/AI/<date>-<title>.md`
-- 把 `傳統IT技術/NN_slug.md` 移到 `output/IT/<date>-<title>.md`
-- 把 `政治經濟/NN_slug.md` 移到 `output/政經/<date>-<title>.md`
+- 把 step 3/4 產出的個別分析 .md 移到 `output/<cat>/<date>-<title>.md`
+- `<cat>` 對應: `AI技術`→`AI`, `傳統IT技術`→`IT`, `政治經濟`→`政經`
 - 3 個類別總結移到 `output/<cat>/<date>-Summary.md`
 - 5+2 推薦移到 `output/<date>-Summary.md`
 - 刪除舊位置
@@ -238,13 +236,16 @@ feedly/
 ├── output/
 │   ├── <date>-Summary.md                 ← 5+2 跨類別最終推薦
 │   ├── AI/
+│   │   ├── ...(之前的紀錄)
 │   │   ├── <date>-Summary.md             ← AI 類別總結
-│   │   ├── <date>-<title-1>.md           ← 個別詳細報告 × N
+│   │   ├── <date>-<title>.md           ← 個別詳細報告 × N
 │   │   └── ...
 │   ├── IT/
+│   │   ├── ...(之前的紀錄)
 │   │   ├── <date>-Summary.md
 │   │   └── <date>-<title>.md × N
 │   └── 政經/
+│       ├── ...(之前的紀錄)
 │       ├── <date>-Summary.md
 │       └── <date>-<title>.md × N
 │
@@ -254,5 +255,12 @@ feedly/
     ├── C3-<date>-<step-3-title>.md
     ├── C4-<date>-<step-4-title>.md
     ├── C5-<date>-<step-5-title>.md
-    └── C6-<date>-<step-6-title>.md
+    ├── C6-<date>-<step-6-title>.md
+    ├── ...(其他之前的紀錄)
+    ├── C(N)-<date>-<step-1-title>.md
+    ├── C(N+1)-<date>-<step-2-title>.md
+    ├── C(N+2)-<date>-<step-3-title>.md
+    ├── C(N+3)-<date>-<step-4-title>.md
+    ├── C(N+4)-<date>-<step-5-title>.md
+    └── C(N+5)-<date>-<step-6-title>.md
 ```
